@@ -1,9 +1,21 @@
-const connection = require("./connection");
+const db = require("./db");
 
-module.exports = {
-     getDepartments() {
+db.getDepartments().then((results) =>{
 
-        
-     }
+    console.log(results);
 
-}
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
