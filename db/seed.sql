@@ -1,12 +1,12 @@
 USE employeeDB;
-SELECT * FROM employeedb
 
-INSERT INTO department (name)
+INSERT INTO 
+department (name)
 
 VALUES
-(physical therapy),
-(ocupational therapy),
-(office management)
+('physical therapy'),
+('ocupational therapy'),
+('office management');
 
 INSERT INTO 
 role (title, salary, department_id )
@@ -17,14 +17,15 @@ VALUES
 ('physical therapy assistant', 50000, 1),
 ('occupational therapist',90000, 2),
 ('director OT', 130000, 2),
-('ocupational therapist assistant', 45000, 2),
+('OT assistant', 45000, 2),
 ('receptionist', 35000, 3),
 ("HR", 55000, 3),
 ('office director', 120000, 3);
 
 
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
+INSERT INTO 
+employee (first_name, last_name, role_id, manager_id)
 
 VALUES
 
@@ -38,3 +39,4 @@ VALUES
 ('Alexander', 'South', 4, null),
 ('Alex', 'Davidson', 3, 3);
 
+SELECT * FROM employeedb

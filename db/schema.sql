@@ -3,12 +3,12 @@ CREATE DATABASE employeeDB;
 USE employeeDB;
 CREATE TABLE department (
     id INT unsigned AUTO_INCREMENT,
-    name VARCHAR(30) UNIQUE NOT NULL,
+    name VARCHAR(300) UNIQUE NOT NULL,
     PRIMARY KEY (id)
 );
 CREATE TABLE role (
     id INT unsigned AUTO_INCREMENT,
-    title VARCHAR(30) UNIQUE NOT NULL,
+    title VARCHAR(300) UNIQUE NOT NULL,
     salary DECIMAL unsigned NOT NULL,
     department_id INT unsigned NOT NULL,
     PRIMARY KEY (id),
@@ -19,8 +19,8 @@ CREATE TABLE role (
 );
 CREATE TABLE employee (
     id INT unsigned AUTO_INCREMENT,
-    first_name VARCHAR(30) NOT NULL,
-    last_name VARCHAR(30) NOT NULL,
+    first_name VARCHAR(300) NOT NULL,
+    last_name VARCHAR(300) NOT NULL,
     role_id INT unsigned NOT NULL,
     manager_id INT unsigned,
     PRIMARY KEY (id),
