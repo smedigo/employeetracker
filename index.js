@@ -1,7 +1,8 @@
 const db = require("./db");
 const connection = require("./db/connection");
 const inquirer = require("inquirer");
-const { createPromptModule } = require("inquirer");
+const consoleTable = require("console.table");
+// const { createPromptModule } = require("inquirer");
 
 function askforAction() {
     inquirer
@@ -10,9 +11,9 @@ function askforAction() {
         type: "list",
         message: "What would you like to do?",
         choices: [
-          "VIEW_DEPARTMENTS",
-          "VIEW_ROLES",
-          "VIEW_EMPLOYEES",
+          "VIEW_DEPARTMENT",
+          "VIEW_ROLE",
+          "VIEW_EMPLOYEE",
           "CREATE_ROLE",
            "exit"
         ]
@@ -20,15 +21,15 @@ function askforAction() {
 
       .then((res) => {
         switch (res.action) {
-        case "VIEW_DEPARTMENTS":
+        case "VIEW_DEPARTMENT":
           
           return;
   
-        case "VIEW_ROLES":
+        case "VIEW_ROLE":
           
           return;
   
-        case "VIEW_EMPLOYEES":
+        case "VIEW_EMPLOYEE":
           
           return;
 
@@ -43,8 +44,8 @@ function askforAction() {
       });
     }
 
-    function viewDepartments() {
-        db.getDepartments()
+    function viewDepartment() {
+        db.getDepartment()
         .then((results) =>{
 
             console.table(results);
@@ -55,12 +56,12 @@ function askforAction() {
     }
 
     function createRole() {
-        db.getDepartments()
-        .then((departments) =>{
+        db.getDepartment()
+        .then((department) =>{
 
-        console.log(departments);
+        console.log(department);
 
-        const departmentChoices = departments.map( (department)=> ({
+        const departmentChoices = department.map( (department)=> ({
                 value: department.id,
                 label: department.name,
             }) )

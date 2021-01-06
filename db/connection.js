@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
 
   password: 'tanya555',
 
-  database: 'employeesDB',
+  database: 'employeeDB',
 });
 
 connection.connect((err) => {
