@@ -1,10 +1,12 @@
 USE employeeDB;
+SELECT * FROM employeedb
+
 INSERT INTO department (name)
 
 VALUES
 (physical therapy),
 (ocupational therapy),
-(office management);
+(office management)
 
 INSERT INTO 
 role (title, salary, department_id )
@@ -35,3 +37,4 @@ VALUES
 ('Natalija', 'W', 5, null),
 ('Alexander', 'South', 4, null),
 ('Alex', 'Davidson', 3, 3);
+
