@@ -23,17 +23,17 @@ CREATE TABLE employee (
     id INT unsigned AUTO_INCREMENT,
     first_name VARCHAR(300) NOT NULL,
     last_name VARCHAR(300) NOT NULL,
-    role_id INT,
+    role_id INT unsigned,
     manager_id INT unsigned,
     PRIMARY KEY (id),
     FOREIGN KEY  (role_id)
-    --CONSTRAINT (fk_role_id)
+    CONSTRAINT (fk_role_id)
     REFERENCES role(role_id) 
     ON DELETE SET NULL;
-    --FOREIGN KEY (manager_id)
-    --CONSTRAINT (fk_manager_id),  
-    --REFERENCES employee(id)
-    -- ON DELETE SET NULL
+    FOREIGN KEY (manager_id)
+    CONSTRAINT (fk_manager_id),  
+    REFERENCES employee(id)
+     ON DELETE SET NULL
 );
 
 
