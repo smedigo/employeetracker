@@ -15,6 +15,10 @@ function askforAction() {
           "VIEW_ROLE",
           "VIEW_EMPLOYEE",
           "CREATE_ROLE",
+          "ADD_EMPLOYEE",
+          "ADD_ROLE",
+          "ADD_DEPARTMENT",
+          "UPDATE_ROLE",
            "exit"
         ]
       })
@@ -22,20 +26,33 @@ function askforAction() {
       .then((res) => {
         switch (res.action) {
         case "VIEW_DEPARTMENT":
-          
+          querybyDepartment();
           return;
   
         case "VIEW_ROLE":
-          
+          queryRole();
           return;
   
         case "VIEW_EMPLOYEE":
-          
+          queryAll();
           return;
 
         case "CREATE_ROLE":
         createRole();
         return;
+
+        case "ADD_EMPLOYEE":
+        addEmployee();
+        return;
+
+        case "ADD_DEPARTMENT":
+        addDpartment();
+        return;
+
+        case "UPDATE_ROLE":
+        changeRole();
+        return;
+
   
         default:
           connection.end();

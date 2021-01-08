@@ -70,4 +70,4 @@ insertRole(data) {
     return connection.query( "INSERT INTO role ?", data);
 },
 
-}
+
