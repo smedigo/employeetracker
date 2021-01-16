@@ -259,12 +259,73 @@ function updateEmployeeRole() {
 
 function updateEmployeeManager() {
 
+  connection.query(`SELECT CONCAT(first_name," ", last_name) AS nameOfManager, id FROM employee`,
+  function(errManager, resManager) {
+    if (errManager) throw errManager;
+    connection.query("Select manager, id FROM role", function(
+      errManager,
+      resManager
+    ){
+      if (errManager) throw errManager;
+      inquirer.prompt([{
+        name: "nameOfEmployeeManager",
+        type: "list",
+        message:"Select name of the employee manager.",
+        choices: resManager.map(manager => {
+          return {
+            name: manager.nameOfManager,
+            value: manager.id
+          };
+        })
+      },
+
+      {
+        name: "employeeRole",
+        type: "lsit",
+        message:"Select employee's new role",
+        choices: resRole.map(role => {
+          return {
+            name: role.title,
+            value: role.id
+          };
+        })
+      },
+    ]) .then (function(answer) {
+      connection.query(
+        "UPDATE manager SET role_id = ? WHERE id = ?",
+        [answer.employeeRole, answer.nameOfEmployeeManager],
+        function(err) {
+          if (err) throw err;
+          console.log("Employee role updated!");
+          init();
+        }
+      );
+    });
+    })
+
+  }
+  );
 
 
 }
 
-function findAllRoles ()
-{
+
+function findAllRoles () {
+
+  connection.query(
+    `SELECT role.id, role.first_name AS “first name”, role.last_name AS “last name”,
+      role.title, role.salary, role.name AS “role”,
+      CONCAT(employee.first_name,” “,employee.last_name) AS “employee”
+      FROM employee
+      LEFT JOIN role ON employee.role_id = role.id
+      LEFT JOIN department ON role.department_id = department.id
+      LEFT JOIN employee manager ON manager.id = employee.manager_id;`,
+    function(err, res) {
+      console.table(res);
+      init();
+    }
+  );
+
 
 } 
 
