@@ -13,12 +13,11 @@ const connection = mysql.createConnection({
   database: 'employeeDB',
 });
 
-connection.connect((err) => {
-  if (err) throw err;
-  console.log('connected as id ' + connection.threadId);
-  connection.end();
-});
 
+connection.connect();
+// setting up connection.query to use promises 
 connection.query = util.promisify(connection.query);
+
+
 
 module.exports = connection;

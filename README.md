@@ -13,7 +13,6 @@ As a user, I would need to be able to input information about the team member su
 * [Technologies](#technologies)
 * [Demonstration](#demonstration)
 * [Installation](#installation)
-* [Acknowledgements](#acknowledgements)
 * [Questions](#questions)
 ​
 ## Technologies
@@ -26,9 +25,8 @@ As a user, I would need to be able to input information about the team member su
 ​
 ## Demonstration 
 ​
-[Application Link](link)
-​
-[Application Video]  (video)
+[Application link](link)
+[Application Video](video)
 ​
 ​
 ## Installation
